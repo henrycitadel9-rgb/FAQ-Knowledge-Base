@@ -1,0 +1,16 @@
+services:
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+      - ./data:/app/data
+    environment:
+      - DATABASE_URL=sqlite:///./data/faq_mvp.sqlite
+      - OPENROUTER_API_KEY=${OPENROUTER_API_KEY}
+      - OPENROUTER_MODEL=${OPENROUTER_MODEL:-openai/gpt-4o-mini}
+      - OPENROUTER_SITE_URL=${OPENROUTER_SITE_URL:-http://127.0.0.1:8000}
+      - OPENROUTER_APP_NAME=${OPENROUTER_APP_NAME:-FAQ Chat Application}
+      - OPENAI_TRANSCRIPTION_API_KEY=${OPENAI_TRANSCRIPTION_API_KEY}
+      - DEBUG=${DEBUG:-False}

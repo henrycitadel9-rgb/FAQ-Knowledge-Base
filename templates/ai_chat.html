@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}AI Chat - FAQ Assistant{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>AI FAQ Assistant</h1>
+    <p>Ask me about admissions, financial aid, housing, registration, transcripts, and other student support topics. I'll provide conversational answers based on the knowledge base.</p>
+
+    <div class="chat-container">
+        <div id="chat-messages" class="chat-messages">
+            <div class="message bot-message">
+                <div class="message-content">
+                    <p>Hello! I'm here to help with questions across admissions, financial aid, housing, registration, transcripts, and student services in a friendly, conversational way. What would you like to know?</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="chat-input">
+            <input type="text" id="message-input" placeholder="Type your question here..." />
+            {% if transcription_enabled %}
+            <button id="voice-btn" title="Voice Input">🎤</button>
+            {% endif %}
+            <button id="send-btn">Send</button>
+            <button id="clear-btn">Clear Chat</button>
+        </div>
+        {% if not transcription_enabled %}
+        <p class="source">Voice input is hidden because no OpenAI transcription key is configured.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="/static/js/ai_chat.js?v=1.4"></script>
+{% endblock %}

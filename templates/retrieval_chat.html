@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Retrieval Chat - FAQ Assistant{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>FAQ Assistant</h1>
+    <p>Ask me about admissions, financial aid, housing, registration, transcripts, and other student support topics.</p>
+    
+    <div class="chat-container">
+        <div id="chat-messages" class="chat-messages">
+            <div class="message bot-message">
+                <div class="message-content">
+                    <p>Hello! I'm here to help with questions across admissions, financial aid, housing, registration, transcripts, and student services. What would you like to know?</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="chat-input">
+            <input type="text" id="message-input" placeholder="Type your question here..." />
+            <button id="send-btn">Send</button>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="/static/js/retrieval_chat.js?v=1.1"></script>
+{% endblock %}

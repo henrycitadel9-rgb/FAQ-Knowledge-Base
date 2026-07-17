@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}{{ faq.canonical_question }} - FAQ{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="faq-detail">
+        <div class="faq-header">
+            <span class="faq-category">{{ faq.category }}</span>
+            <h1>{{ faq.canonical_question }}</h1>
+            <div class="faq-meta">
+                <span class="faq-number">FAQ #{{ faq.faq_number }}</span>
+                {% if faq.source_ref %}
+                <span class="source-ref">Source: {{ faq.source_ref }}</span>
+                {% endif %}
+            </div>
+        </div>
+        
+        <div class="faq-answer">
+            <h3>Answer</h3>
+            <p>{{ faq.official_answer }}</p>
+        </div>
+        
+        {% if faq.tags %}
+        <div class="faq-tags">
+            <h4>Tags</h4>
+            <div class="tags">
+                {% for tag in faq.tags.split(',') %}
+                <span class="tag">{{ tag.strip() }}</span>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+        
+        {% if faq.keywords %}
+        <div class="faq-keywords">
+            <h4>Keywords</h4>
+            <p>{{ faq.keywords }}</p>
+        </div>
+        {% endif %}
+        
+        <div class="faq-actions">
+            <a href="/faq" class="btn btn-secondary">← Back to FAQs</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

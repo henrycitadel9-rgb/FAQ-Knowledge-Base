@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}FAQ - Frequently Asked Questions{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Frequently Asked Questions</h1>
+    
+    <!-- Search and Filter Section -->
+    <div class="faq-controls">
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Search FAQs..." />
+            <button id="search-btn">Search</button>
+        </div>
+        <div class="category-filter">
+            <button class="category-btn active" data-category="">All</button>
+            <!-- Categories will be populated by JS -->
+        </div>
+    </div>
+    
+    <!-- FAQ List -->
+    <div id="faq-container">
+        <p>Loading FAQs...</p>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="/static/js/faq.js"></script>
+{% endblock %}

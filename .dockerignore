@@ -1,0 +1,20 @@
+# Ignore Python artifacts
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environment
+.venv/
+venv/
+
+# Local environment settings
+.env
+.env.*
+
+# Docker artifacts
+*.log
+
+# Editor metadata
+.vscode/
+.idea/
